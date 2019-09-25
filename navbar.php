@@ -1,3 +1,15 @@
+<!--php script, dynamic creation of menu items -->
+
+<?php
+$menuItems = ["Accueil" => "index.php",
+                "Produits" => "product.php",
+                "Contact" => "contact.php",
+                "New Products" => "new-products.php",
+                "Our New Project" => "new-project.php",
+            ];
+
+?>
+
       <!-- Navbar -->
 <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top">
   <a href="index.php"><img class="glogo" src="images/glogo.png" "alt="logo greenness"></a>
@@ -7,15 +19,11 @@
 
   <div class="collapse navbar-collapse text-center" id="navbarNav">
     <ul class="navbar-nav ml-auto mr-auto">
-      <li>
-        <a class="nav-link" href="index.php">Accueil</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="product.php">Produits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
+        <?php
+        foreach($menuItems as $item => $link){
+            echo "<li><a class='nav-link' href='$link'>$item</a></li>";
+        }
+        ?>
     </ul>
   </div>
     <div id="panier">
